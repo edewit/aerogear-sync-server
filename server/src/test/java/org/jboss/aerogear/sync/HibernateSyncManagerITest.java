@@ -18,15 +18,15 @@ package org.jboss.aerogear.sync;
 
 import org.junit.BeforeClass;
 
-public class CouchDBSyncManagerITest extends SyncManagerITest {
+public class HibernateSyncManagerITest extends SyncManagerITest {
 
     @BeforeClass
     public static void createDataStore() {
-        syncManager = new CouchDBSyncManager("http://127.0.0.1:5984", "sync-test");
+        syncManager = new HibernateSyncManager();
     }
 
     @Override
     public Document createDocument(String id, String revision, String content) {
-        return new DefaultDocument(id, revision, content);
+        return new EntityDocument(id, revision, content);
     }
 }
